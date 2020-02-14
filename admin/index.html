@@ -121,7 +121,7 @@
 
         // 顶部个人中心
         $('.header_bar>.user_center_link>a:eq(0)').on('click', function () {
-            $('.menu>div.level01:eq(3)').addClass('active').siblings().removeClass('active');
+            $('.menu>div.level01:eq(3)').trigger('click');
         });
 
     });
