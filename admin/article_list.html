@@ -74,6 +74,7 @@
         </table>
         <div class="row text-center">
             <ul id="pagination" class="pagination-sm"></ul>
+            <p>没有数据!</p>
         </div>
     </div>
 </div>
@@ -106,6 +107,10 @@
 
 <script>
     $(function () {
+        let initPage = 1;   //初始化页码
+        let currentPage = initPage;    //当前页码变量
+        let visiblePages = 7;   //显示的最大页码
+        let perpage = 10;   //显示筛选的最大文章数
 
         // 下拉框所有分类显示
         $.ajax({
@@ -120,10 +125,10 @@
         });
 
         // 页面加载文章 默认显示及筛选文章
-        getData(1, function (backData) {
+        getData(initPage, function (backData) {
             $('#pagination').twbsPagination({
-                startPage: 1,
-                visiblePages: 7,
+                startPage: initPage,
+                visiblePages: visiblePages,
                 first: '首页',
                 prev: '上一页',
                 next: '下一页',
@@ -131,6 +136,7 @@
                 totalPages: backData.data.totalPage,
                 onPageClick: function (event, page) {
                     getData(page, null);
+                    currentPage = page;
                 }
             });
         });
@@ -138,9 +144,9 @@
         // 筛选搜索功能
         $('#btnSearch').on('click', function (e) {
             e.preventDefault();
-            getData(1, function (backData) {
+            getData(initPage, function (backData) {
                 // 动态生成分页的总页数:直接掉用changeTotalPages方法动态分页
-                $('#pagination').twbsPagination('changeTotalPages', backData.data.totalPage, 1);
+                $('#pagination').twbsPagination('changeTotalPages', backData.data.totalPage, initPage);
 
                 /*动态生成分页的总页数另一种方法:先摧毁分页结构再重新分页(太繁琐 官方文档是这么做的)
                 $('#pagination').twbsPagination('destroy');
@@ -176,33 +182,67 @@
 
         /**
          * 封装获取文章数据结果方法
-         * currentPage:当前页
+         * initPage:当前页
          * callBack: 回调函数
          */
-        function getData(currentPage, callBack) {
+        function getData(initPage, callBack) {
             $.ajax({
                 type: 'get',
                 url: BigNew.article_query,
                 data: {
                     type: $('#selCategory').val(),
                     state: $('#selStatus').val(),
-                    page: currentPage,
-                    perpage: 15
+                    page: initPage,
+                    perpage: perpage
                 },
                 success: function (backData) {
-                    if (backData.code == 200 && backData.data.data.length != 0) {
+                    if (backData.code == 200) {
                         // 渲染页面数据
-                        let resHtml = template('article_info', backData);//这里只需要把整个json数据放进去就可以了
+                        let resHtml = template('article_info', backData);
                         $('tbody').html(resHtml);
-                        if (callBack != null) {
+                        // 显示分页
+                        $('#pagination').show();
+                        $('#pagination').next().hide();
+
+                        if (backData.data.totalCount != 0 && callBack != null) {
                             callBack(backData);
+                        } else if (backData.data.totalCount == 0) {
+                            $('#pagination').hide();
+                            $('#pagination').next().show();
                         }
                     } else {
-                        alert('此分类还没有文章,无法显示到页面!');
+                        alert(backData.msg);
                     }
                 }
             });
         }
+
+        // 删除文章 事件委托注册
+        $('tbody').on('click', '.delete', function () {
+            let articleId = $(this).attr('data-id');
+            if (confirm('你确定要删除吗?')) {
+                $.ajax({
+                    type: 'post',
+                    url: BigNew.article_delete,
+                    data: {
+                        id: articleId
+                    },
+                    success: function (backData) {
+                        if (backData.code == 204) {
+                            alert('删除成功!');
+                            // 重新生成页码来解决如果删除的是最后一页的最后一条问题
+                            getData(currentPage, function (backData) {
+                                if (currentPage > backData.data.totalPage) {
+                                    $('#pagination').twbsPagination('changeTotalPages', backData.data.totalPage, backData.data.totalPage);
+                                } else {
+                                    $('#pagination').twbsPagination('changeTotalPages', backData.data.totalPage, currentPage);
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
 
     });
 
