@@ -59,7 +59,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">发布时间：</label>
                 <div class="jeinpbox col-sm-4">
-                    <input type="text" class="jeinput" id="test03" placeholder="YYYY-MM-DD">
+                    <input type="text" class="jeinput" name="date" id="test03" placeholder="YYYY-MM-DD">
                     <div class="icons jebtns"
                          onclick="jeDate('#test03',{
                              trigger:false,
@@ -95,6 +95,18 @@
 <script>
 
     $(function () {
+
+        // 发布时间插件
+        jeDate("#test03", {
+            format: "YYYY-MM-DD",
+            theme: {bgcolor: "#00A1CB", color: "#ffffff", pnColor: "#00CCFF"},
+            zIndex: 99999
+        });
+
+        // 创建富文本编辑器
+        let E = window.wangEditor;
+        let editor = new E('#editor');
+        editor.create();
 
         // 图片预览
         $('#inputCover').on('change', function () {
@@ -132,17 +144,46 @@
             }
         });
 
-        // 发布时间插件
-        jeDate("#test03", {
-            format: "YYYY-MM-DD",
-            theme: {bgcolor: "#00A1CB", color: "#ffffff", pnColor: "#00CCFF"},
-            zIndex: 99999
+        // 文章修改
+        $('.btn-edit').on('click', function (e) {
+            e.preventDefault();
+            let form = document.getElementById('form');
+            let formData = new FormData(form);
+            formData.append('id', window.location.search.split("=")[1]);
+            formData.append('content', editor.txt.html());
+            formData.append('state', '已发布');
+            $.ajax({
+                type: 'post',
+                url: BigNew.article_edit,
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (backData) {
+                    alert('修改成功!');
+                    window.history.back();
+                }
+            });
         });
 
-        // 创建富文本编辑器
-        let E = window.wangEditor;
-        let editor = new E('#editor');
-        editor.create();
+        // 存为草稿
+        $('.btn-draft').on('click', function (e) {
+            e.preventDefault();
+            let form = document.getElementById('form');
+            let formData = new FormData(form);
+            formData.append('id', window.location.search.split("=")[1]);
+            formData.append('content', editor.txt.html());
+            $.ajax({
+                type: 'post',
+                url: BigNew.article_edit,
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (backData) {
+                    alert('操作成功!');
+                    window.history.back();
+                }
+            });
+        })
 
     });
 
