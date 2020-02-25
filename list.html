@@ -257,6 +257,7 @@
         let key = window.location.search.split('=')[0];
         let value = window.location.search.split('=')[1];
 
+        // 搜索条件请求数据
         if (key == '') {
             window.location.href = './index.html';
         } else if (key == '?id') {
@@ -267,7 +268,6 @@
                     type: value
                 },
                 success: function (backData) {
-                    console.log(backData)
                     if (backData.code == 200) {
 
                         if (backData.data.data.length > 0) {
@@ -282,12 +282,10 @@
                         }
                     }
                 }
-
             });
         } else {
             // url中文乱码转换
             value = decodeURI(value);
-            console.log(value)
             $.ajax({
                 type: 'get',
                 url: 'http://localhost:8080/api/v1/index/search',
@@ -297,8 +295,6 @@
                 success: function (backData) {
                     console.log(backData);
                     if (backData.code == 200) {
-
-
                         let resHtml = template('list_article', backData);
                         $('.left_con.setfr').html(
                             `<div class="list_title"><h3>搜索：${value}</h3></div>`
@@ -307,7 +303,6 @@
                 }
             });
         }
-
 
     });
 </script>

@@ -2,164 +2,306 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>评论列表</title>
-  <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/iconfont.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="./libs/jquery-1.12.4.min.js"></script>
-  <script src="./libs/template-web.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评论列表</title>
+    <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="./libs/jquery-1.12.4.min.js"></script>
+    <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./libs/template-web.js"></script>
+    <script src="./libs/jquery.twbsPagination.js"></script>
 </head>
 
 <body>
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="common_title">
-      评论列表
+        评论列表
     </div>
     <div class="container-fluid common_con">
-      <table class="table table-striped table-bordered table-hover mp20">
-        <thead>
-          <tr>
-            <th>作者</th>
-            <th>评论</th>
-            <th>评论在</th>
-            <th>提交于</th>
-            <th>状态</th>
-            <th class="text-center" width="100">操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>小周</td>
-            <td>这是一条测试评论，欢迎光临</td>
-            <td>《世界，你好》</td>
-            <td>2017-07-04 12:00:00</td>
-            <td>已批准</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-warning btn-xs">拒绝</a>
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr class="danger">
-            <td>小右</td>
-            <td>你好啊，交个朋友好吗？</td>
-            <td>《世界，你好》</td>
-            <td>2017-07-06 14:10:00</td>
-            <td>待审核</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-info btn-xs">批准</a>
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr class="danger">
-            <td>老周</td>
-            <td>不好</td>
-            <td>《世界，你好》</td>
-            <td>2017-07-09 22:22:00</td>
-            <td>待审核</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-info btn-xs">批准</a>
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr class="danger">
-            <td>中周</td>
-            <td>How are you?</td>
-            <td>《世界，你好》</td>
-            <td>2017-07-09 18:22:00</td>
-            <td>待审核</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-info btn-xs">批准</a>
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td>小右</td>
-            <td>I am fine thank you and you?</td>
-            <td>《世界，你好》</td>
-            <td>2017-07-11 22:22:00</td>
-            <td>已批准</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-warning btn-xs">拒绝</a>
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td>哈哈</td>
-            <td>一针见血</td>
-            <td>《世界，你好》</td>
-            <td>2017-07-22 09:10:00</td>
-            <td>已批准</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-warning btn-xs">拒绝</a>
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td>武秀英</td>
-            <td>外影广条同取水权科速工与。矿身面却属次养导务作者用品油调。高石期品极放存斗一号口消别共去。</td>
-            <td>《世界，你好》</td>
-            <td>1970-03-15 11:31:50</td>
-            <td>已拒绝</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td>胡娟</td>
-            <td>采参什正面准观提干在易东统。走部系取团商机酸科往证和流物实则。入程用指学行利划影现清关织方。</td>
-            <td>《第四篇示例文章》</td>
-            <td>1970-03-23 14:16:57</td>
-            <td>已拒绝</td>
-            <td class="text-center">
-              <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td>邵艳</td>
-            <td>国新研目心思力品家织通还如周气长多。话它思造约众系压程它过去全。必导则达发前何西最老四关向。</td>
-            <td>《第一篇示例文章》</td>
-            <td>1970-04-19 12:34:27</td>
-            <td>已拒绝</td>
-            <td class="text-center">
-              <a href="javascript:editTr( 'trashed',10 );" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td>唐军</td>
-            <td>好联律物联使进很们有严这里月之。实养件矿商除政究定划必火起划六。内百那则变次引持只情车各地织持。</td>
-            <td>《第四篇示例文章》</td>
-            <td>1970-04-24 11:22:29</td>
-            <td>已批准</td>
-            <td class="text-center">
-              <a href="javascript:editTr( 'rejected',11 );" class="btn btn-warning btn-xs">拒绝</a>
-              <a href="javascript:editTr( 'trashed',11 );" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="row text-center">
-        <ul class="pagination pagination-sm">
-          <li class="page-item first disabled"><a href="#" class="page-link">首页</a></li>
-          <li class="page-item prev disabled"><a href="#" class="page-link">上一页</a></li>
-          <li class="page-item active"><a href="#" class="page-link">1</a></li>
-          <li class="page-item"><a href="#" class="page-link">2</a></li>
-          <li class="page-item"><a href="#" class="page-link">3</a></li>
-          <li class="page-item"><a href="#" class="page-link">4</a></li>
-          <li class="page-item"><a href="#" class="page-link">5</a></li>
-          <li class="page-item"><a href="#" class="page-link">6</a></li>
-          <li class="page-item"><a href="#" class="page-link">7</a></li>
-          <li class="page-item next"><a href="#" class="page-link">下一页</a></li>
-          <li class="page-item last"><a href="#" class="page-link">尾页</a></li>
-        </ul>
-        <ul id="pagination" class="pagination-sm"></ul>
-      </div>
+        <table class="table table-striped table-bordered table-hover mp20">
+            <thead>
+            <tr>
+                <th>作者</th>
+                <th>评论</th>
+                <th>评论在</th>
+                <th>提交于</th>
+                <th>状态</th>
+                <th class="text-center" width="100">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>小周</td>
+                <td>这是一条测试评论，欢迎光临</td>
+                <td>《世界，你好》</td>
+                <td>2017-07-04 12:00:00</td>
+                <td>已批准</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-warning btn-xs">拒绝</a>
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr class="danger">
+                <td>小右</td>
+                <td>你好啊，交个朋友好吗？</td>
+                <td>《世界，你好》</td>
+                <td>2017-07-06 14:10:00</td>
+                <td>待审核</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-info btn-xs">批准</a>
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr class="danger">
+                <td>老周</td>
+                <td>不好</td>
+                <td>《世界，你好》</td>
+                <td>2017-07-09 22:22:00</td>
+                <td>待审核</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-info btn-xs">批准</a>
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr class="danger">
+                <td>中周</td>
+                <td>How are you?</td>
+                <td>《世界，你好》</td>
+                <td>2017-07-09 18:22:00</td>
+                <td>待审核</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-info btn-xs">批准</a>
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>小右</td>
+                <td>I am fine thank you and you?</td>
+                <td>《世界，你好》</td>
+                <td>2017-07-11 22:22:00</td>
+                <td>已批准</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-warning btn-xs">拒绝</a>
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>哈哈</td>
+                <td>一针见血</td>
+                <td>《世界，你好》</td>
+                <td>2017-07-22 09:10:00</td>
+                <td>已批准</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-warning btn-xs">拒绝</a>
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>武秀英</td>
+                <td>外影广条同取水权科速工与。矿身面却属次养导务作者用品油调。高石期品极放存斗一号口消别共去。</td>
+                <td>《世界，你好》</td>
+                <td>1970-03-15 11:31:50</td>
+                <td>已拒绝</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>胡娟</td>
+                <td>采参什正面准观提干在易东统。走部系取团商机酸科往证和流物实则。入程用指学行利划影现清关织方。</td>
+                <td>《第四篇示例文章》</td>
+                <td>1970-03-23 14:16:57</td>
+                <td>已拒绝</td>
+                <td class="text-center">
+                    <a href="javascript:void(0);;" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>邵艳</td>
+                <td>国新研目心思力品家织通还如周气长多。话它思造约众系压程它过去全。必导则达发前何西最老四关向。</td>
+                <td>《第一篇示例文章》</td>
+                <td>1970-04-19 12:34:27</td>
+                <td>已拒绝</td>
+                <td class="text-center">
+                    <a href="javascript:editTr( 'trashed',10 );" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>唐军</td>
+                <td>好联律物联使进很们有严这里月之。实养件矿商除政究定划必火起划六。内百那则变次引持只情车各地织持。</td>
+                <td>《第四篇示例文章》</td>
+                <td>1970-04-24 11:22:29</td>
+                <td>已批准</td>
+                <td class="text-center">
+                    <a href="javascript:editTr( 'rejected',11 );" class="btn btn-warning btn-xs">拒绝</a>
+                    <a href="javascript:editTr( 'trashed',11 );" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row text-center">
+            <!--            <ul class="pagination pagination-sm">-->
+            <!--                <li class="page-item first disabled"><a href="#" class="page-link">首页</a></li>-->
+            <!--                <li class="page-item prev disabled"><a href="#" class="page-link">上一页</a></li>-->
+            <!--                <li class="page-item active"><a href="#" class="page-link">1</a></li>-->
+            <!--                <li class="page-item"><a href="#" class="page-link">2</a></li>-->
+            <!--                <li class="page-item"><a href="#" class="page-link">3</a></li>-->
+            <!--                <li class="page-item"><a href="#" class="page-link">4</a></li>-->
+            <!--                <li class="page-item"><a href="#" class="page-link">5</a></li>-->
+            <!--                <li class="page-item"><a href="#" class="page-link">6</a></li>-->
+            <!--                <li class="page-item"><a href="#" class="page-link">7</a></li>-->
+            <!--                <li class="page-item next"><a href="#" class="page-link">下一页</a></li>-->
+            <!--                <li class="page-item last"><a href="#" class="page-link">尾页</a></li>-->
+            <!--            </ul>-->
+            <ul id="pagination" class="pagination-sm"></ul>
+        </div>
 
     </div>
-  </div>
+</div>
+
+<script src="./libs/http.js"></script>
+<!-- 准备评论列表模板 -->
+<script id="comment_list" type="text/html">
+    {{each data.data value}}
+    {{if value.state == '待审核'}}
+    <tr class="danger">
+        {{else}}
+    <tr>
+        {{/if}}
+        <td>{{value.author}}</td>
+        <td>{{value.content}}</td>
+        <td>{{value.title}}</td>
+        <td>{{value.date}} {{value.time}}</td>
+        <td>{{value.state}}</td>
+
+        <td class="text-center">
+            {{if value.state == '待审核'}}
+            <a href="javascript:void(0);;" data-id="{{value.id}}" class="btn btn-warning btn-xs btn-pinzhun">批准</a>
+            {{else if value.state == '已通过'}}
+            <a href="javascript:void(0);;" data-id="{{value.id}}" class="btn btn-warning btn-xs btn-jujue">拒绝</a>
+            {{/if}}
+            <a href="javascript:void(0);;" data-id="{{value.id}}" class="btn btn-danger btn-xs btn-delete">删除</a>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<script>
+    $(function () {
+        let initPage = 1;   //初始化页面
+        let perpage = 10;   //显示每页最大评论数
+        let visiblePages = 7;   //显示的最大页码
+        let currentPage = initPage;    //当前页码变量
+
+        // 页面初始化显示评论数据
+        getData(initPage, function (backData) {
+            $('#pagination').twbsPagination({
+                startPage: initPage,
+                visiblePages: visiblePages,
+                first: '首页',
+                prev: '上一页',
+                next: '下一页',
+                last: '尾页',
+                totalPages: backData.data.totalPage,
+                onPageClick: function (event, page) {
+                    getData(page, null);
+                    currentPage = page;
+                }
+            });
+        });
+
+        /**
+         * 封装的获取页面评论数据方法
+         * @param initPage
+         * @param callBack
+         */
+        function getData(initPage, callBack) {
+            $.ajax({
+                type: 'get',
+                url: BigNew.comment_list,
+                data: {
+                    page: initPage,
+                    perpage: perpage,
+                },
+                success: function (backData) {
+                    if (backData.code == 200) {
+                        let resHtml = template('comment_list', backData);
+                        $('tbody').html(resHtml);
+
+                        if (callBack != null) {
+                            callBack(backData);
+                        }
+                    }
+                }
+            });
+        }
+
+        // 批准
+        $('tbody').on('click', '.btn-pinzhun', function () {
+            let commentId = $(this).attr('data-id');
+            $.ajax({
+                type: 'post',
+                url: BigNew.comment_pass,
+                data: {
+                    id: commentId
+                },
+                success: function (backData) {
+                    if (backData.code == 200) {
+                        alert('已批准通过!');
+                        getData();
+                    }
+                }
+            });
+        });
+
+        // 拒绝
+        $('tbody').on('click', '.btn-jujue', function () {
+            let commentId = $(this).attr('data-id');
+            $.ajax({
+                type: 'post',
+                url: BigNew.comment_reject,
+                data: {
+                    id: commentId
+                },
+                success: function (backData) {
+                    if (backData.code == 200) {
+                        alert('评论已拒绝!');
+                        getData();
+                    }
+                }
+            });
+        });
+
+        // 删除
+        $('tbody').on('click', '.btn-delete', function () {
+            let commentId = $(this).attr('data-id');
+            $.ajax({
+                type: 'post',
+                url: BigNew.comment_delete,
+                data: {
+                    id: commentId
+                },
+                success: function (backData) {
+                    if (backData.code == 200) {
+                        alert('删除成功!');
+                        // 重新生成页码来解决如果删除的是最后一页的最后一条问题
+                        getData(currentPage, function (backData) {
+                            if (currentPage > backData.data.totalPage) {
+                                $('#pagination').twbsPagination('changeTotalPages', backData.data.totalPage, backData.data.totalPage);
+                            } else {
+                                $('#pagination').twbsPagination('changeTotalPages', backData.data.totalPage, currentPage);
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
